@@ -1,3 +1,13 @@
+/* OVERALL STYLING RULES */
+html {
+    height: 100vh;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* HEADER STYLING RULES */
 .header {
     align-items: center !important; 
@@ -30,6 +40,10 @@ a,a:hover {
 }
 
 /* LOGIN STYLING RULES */
+.main {
+    flex: 1;
+    margin-top: 0px !important;
+}
 .wrapper {
     text-align: center;
     width: 60%;
@@ -61,5 +75,43 @@ a,a:hover {
 }
 /* FOOTER STYLING RULES */
 .footer {
-    height: 55px;
+    background-color: #F6DF84;
+    height: 8vh;
+    align-items: center !important; 
+}
+/* SIGN UP STYLING RULES */
+.signup-input{
+    width: 250px !important;
+}
+.password-div {
+    background-color: #daeaf5;
+    border-radius: 10px;
+    border: 1px solid #9cc7e4;
+    width: 280px;
+    height: 35px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #286894;
+}
+.password-div:hover {
+    background-color: #9cc7e4;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+.sign-up-div {
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 992px) {
+.sign-up-div {
+    display: block !important;
+}
+.signup-input {
+    margin: auto !important;
+   
+}
 }
