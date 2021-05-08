@@ -1,0 +1,65 @@
+/* HEADER STYLING RULES */
+.header {
+    align-items: center !important; 
+    background-color: #ECECEC !important;
+}
+.main-title {
+    font-family: 'Archivo Black', sans-serif;
+}
+.header-icon {
+    height: 120px;
+    width: auto;
+}
+a,a:hover {
+    text-decoration: none !important;
+}
+
+@media (max-width: 992px) {
+    .main-title {
+       font-size: 26px;
+    }
+
+    .header-icon {
+        height: 80px;
+        width: auto;
+    }
+}
+/* NAVBAR STYLING RULES */
+.navbar {
+    background-color: #5DA2D5 !important;
+}
+
+/* LOGIN STYLING RULES */
+.wrapper {
+    text-align: center;
+    width: 60%;
+    border: 1.5px solid #6C757D;
+    background-color: #F8F9FA;
+    border-radius: 15px;
+}
+.subtitle, .subtitle:hover{
+    color: #F78888;
+    font-family: 'Bree Serif', serif;
+}
+.login-input{
+    width: 50% !important;
+}
+.user-icon {
+    height:  75px;
+}
+.login-btn {
+    width: 160px;
+}
+
+@media (max-width: 992px) {
+    .wrapper { 
+        width: 90% !important;
+    }
+    .login-input{
+        width: 80% !important;
+    }
+}
+/* FOOTER STYLING RULES */
+.footer {
+    height: 55px;
+}
