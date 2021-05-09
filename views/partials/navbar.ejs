@@ -1,17 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto font-weight-bold">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="../login">Login <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="../signup">Sign up</a>
-        </li>
-       </ul>
-    </div>
+  <form class="form-inline search-form">
+    <select class="custom-select mr-sm-2" id="select-id">
+      <option selected disabled>Options</option>
+      <option value="1">Title</option>
+      <option value="2">Gender</option>
+    </select>
+    <input class="form-control search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn btn-light font-weight-bold my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav font-weight-bold">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="../login">Login <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="../signup">Sign up</a>
+      </li>
+     </ul>
+     </div>
+
   </nav>
