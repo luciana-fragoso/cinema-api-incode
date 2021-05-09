@@ -87,11 +87,12 @@ a,a:hover {
     background-color: #daeaf5;
     border-radius: 10px;
     border: 1px solid #9cc7e4;
-    width: 280px;
+    width: 200px;
     height: 35px;
     line-height: 30px;
     font-weight: 600;
     color: #286894;
+    overflow-wrap: break-word;
 }
 .password-div:hover {
     background-color: #9cc7e4;
@@ -104,14 +105,24 @@ ul {
 }
 .sign-up-div {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
 }
+
 @media (max-width: 992px) {
 .sign-up-div {
-    display: block !important;
+    display: flex;
+    flex-direction: column !important;
 }
+
+.sign-up-div :nth-child(1) { order: 1;}
+.sign-up-div :nth-child(2) { order: 3;}
+.sign-up-div :nth-child(3) { order: 2;}
+.sign-up-div :nth-child(4) { order: 4;}
 .signup-input {
-    margin: auto !important;
-   
+    width: 85% !important;
+    margin: auto;
 }
+
 }

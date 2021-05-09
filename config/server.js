@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
 
+//Importing models
+require("../model/user");
+require("../model/rating");
+
 //routes imports
 const homeRoute = require('../routes/home');
 
+
+
 //setting view engine to ejs
 app.set('view engine', 'ejs');
+
+
+
 
 
 //middleware
