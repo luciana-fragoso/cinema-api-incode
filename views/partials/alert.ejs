@@ -1,0 +1,24 @@
+<div id="alert" role="alert">
+        <% if (locals.message) {  %> 
+      <% if ((locals.type === "error")){ %>
+          <script>
+              document.getElementById("alert").setAttribute("class","alert fade show alert-danger");
+          </script>
+          <% } %>
+    
+
+       <% if ((locals.type) === "success") { %>
+          <script>  
+              document.getElementById("alert").setAttribute("class","alert afade show alert-success");
+          </script>
+       <% } %>
+ 
+      
+      <% for (var i=0;i<locals.message.length;i++) {%>
+       <p class="mt-0 mb-0 small-font"> - <%= locals.message[i] %> </p>
+        <% } %>
+    
+   
+    
+    <% } %>
+  </div>

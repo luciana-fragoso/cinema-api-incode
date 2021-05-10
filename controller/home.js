@@ -1,13 +1,21 @@
+const User = require("../model/user");
 
 
-exports.homepage = function(req,res) {
+exports.homepage = (req, res) => {
     res.render("pages/index");
 }
 
-exports.login = function(req,res) {
+exports.login = (req, res) => {
     res.render("pages/login");
 }
 
-exports.signup = function(req,res) {
+exports.signup = (req, res) => {
     res.render("pages/signup");
 }
+
+exports.signup_post = async (req, res) => {
+    await User.create(req.body);
+    res.redirect("/");
+}
+
+    

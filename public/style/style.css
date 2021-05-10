@@ -176,3 +176,11 @@ ul {
 }
 
 }
+/* ALERT STYLING RULES */
+.small-font{
+    font-size: 10px;
+}
+.alert-div  {
+    width: 200px !important;
+    margin: auto;
+}

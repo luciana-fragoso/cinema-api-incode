@@ -1,4 +1,5 @@
 const express = require('express');
+const bp = require('body-parser');
 const app = express();
 
 //Importing models
@@ -9,19 +10,14 @@ require("../model/rating");
 const homeRoute = require('../routes/home');
 
 
-
-//setting view engine to ejs
-app.set('view engine', 'ejs');
-
-
-
-
-
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+
+//setting view engine to ejs
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '../../public'));
 
 //middleware routes
