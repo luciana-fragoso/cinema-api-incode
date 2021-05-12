@@ -1,5 +1,6 @@
 const User = require("../model/user");
 const axios = require('axios').default;
+var bcrypt = require('bcryptjs');
 
 exports.homepage = async (req, res) => {
     
@@ -29,7 +30,48 @@ exports.signup = (req, res) => {
 }
 
 exports.signup_post = async (req, res) => {
-    await User.create(req.body);
+    await User.create({
+        email:req.body.email,
+        name:req.body.name,
+        password:bcrypt.hashSync(req.body.password,8)}
+        );
     res.redirect("/");
+}
+
+exports.login_post = (req,res,next) =>{
+   User.findOne({
+       email:req.body.email
+    })
+   .exec()
+   .then(user =>{
+       if(user.length<1){
+           return res.status(401).json({
+               message:'Authorization failed'
+           });
+       }
+       bcrypt.compareSync(req.body.password,user[0].password,(err,result) =>{
+           if(err){
+            return res.status(401).json({
+                message:'Authorization failed'});
+           }
+           if(result){
+               console.log('login successful');
+               return res.status(200).json({
+                   message:'Login sucessful'
+                   
+               });
+           }
+           res.staus(401).json({
+               message:'Authorization failed'
+           });
+       });    
+   })
+   .catch(err =>{
+       console.log('error');
+       res.status(500).json({
+           error:err
+       })
+
+   })
 }
 
