@@ -36,6 +36,8 @@ a,a:hover {
 }
 /* NAVBAR STYLING RULES */
 .navbar {
+    width: 100%;           
+    position: absolute;
     background-color: #5DA2D5 !important;
 }
 .search-form {
@@ -44,6 +46,54 @@ a,a:hover {
 }
 .search-input {
     width: 400px !important;
+}
+#search-results{
+    background-color: #D3D3D3;
+    border-radius: 10px;
+    position:absolute;
+    width: 400px;
+    padding: 0px;
+    
+    border-top: 0px;
+    max-height: 150px; 
+    left: 34.9%;  
+    top: 29%;
+    display: none;
+    font-weight: bold;
+    z-index: 1;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #808080;
+}
+
+
+#search-results a{
+        padding: 2%;
+}
+.show-search-image {
+    width: 20%;
+}
+
+.show-search-list{
+    height: 90px;
+    width: 80%; 
+}
+.show-search-list:hover{
+    background-color:#FFFFFF;
+ }
+.very-small-icon {
+    height: 90px;
+    margin-left: 7px;
 }
 
 nav ul { order:1;}
@@ -60,7 +110,7 @@ nav form { order: 2;}
 
         padding: 4px  2px 4px 2x!important;
     }
-    .search-input {
+    .search-input,#search-results {
         width: 50% !important;
         font-size: 10px !important;    
     }
@@ -91,6 +141,7 @@ nav form { order: 2;}
 }
 /* LOGIN STYLING RULES */
 .main {
+    position:relative;
     flex: 1;
     margin-top: 0px !important;
 }
@@ -126,6 +177,7 @@ nav form { order: 2;}
 /* FOOTER STYLING RULES */
 .footer {
     background-color: #F6DF84;
+   
     height: 8vh;
     align-items: center !important; 
 }

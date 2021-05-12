@@ -17,8 +17,12 @@
           <h1><%= locals.show.name %></h1>
           <h1><%= locals.show.genres %></h1>
           <h1><%= locals.show.year %></h1>
-          <%- locals.show.summary %>
           
+          <h4>Cast</h4>
+          <% for (var i=0;(i<locals.show.cast.length) && (i<6) ;i++) { %>
+            <h6><%= locals.show.cast[i] %></h6>
+          <% } %>
+          <%- locals.show.summary %>
         
     </div>
        </div>

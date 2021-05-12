@@ -30,9 +30,6 @@ exports.signup = (req, res) => {
 
 exports.signup_post = async (req, res) => {
     await User.create(req.body);
-   
-     
-          
-          
+    res.redirect("/");
 }
 
