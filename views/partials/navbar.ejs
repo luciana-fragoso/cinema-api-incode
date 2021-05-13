@@ -1,16 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <form class="form-inline search-form">
     <select class="custom-select mr-sm-2" id="select-id">
-      <option selected disabled>Update</option>
-      <option value="1">Week</option>
-      <option value="2">Month</option>
+      <option selected disabled>Genre</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Romance">Romance</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Action">Action</option>
+      <option value="Crime">Crime</option>
+      <option value="Drama">Drama</option>
+      <option value="Music">Music</option>
+      <option value="Horror">Horror</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Science-Fiction">Science-Fiction</option>
     </select>
-    <input class="form-control search-input mr-sm-2" type="search"  name="search" id="search" placeholder="Search by movie title or genre">
+    <input class="form-control search-input mr-sm-2" type="search" autocomplete="off"  name="search" id="search" placeholder="Search by movie title or genre">
     
     <button class="btn btn btn-light font-weight-bold my-2 my-sm-0" id="search-button">Search</button>
   </form>
   
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="submit" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,4 +38,5 @@
 
   </div>
   <script src="/js/searchbar.js"></script>
+  <script src="/js/selectSearch.js"></script>
   
