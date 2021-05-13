@@ -55,8 +55,8 @@ a,a:hover {
     padding: 0px;
     border-top: 0px;
     max-height: 150px; 
-    left: 39%;  
-    top: 29%;
+    left: 39.2%;  
+    top: 30% !important;
     display: none;
     font-weight: bold;
     z-index: 1;

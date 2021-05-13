@@ -3,7 +3,13 @@
 $( document ).ready(function() {
 $("#search").on('keyup change',function(e) {search(e); });
 
+    
     const search = function(e) {
+
+        if (e.keyCode === 13){
+            $("#search").val("");
+            $("#search-results").css({ display: "none" });
+        } else {
 
     e.preventDefault();
     var searchResults = [];
@@ -43,8 +49,12 @@ $("#search").on('keyup change',function(e) {search(e); });
                 +currentMatch.name+"</a></div></div>");     
             })
             $("#search-results").css({ display: "block" });
+            
+            
+   
     })
     }
+}
 }
 
 //* events to close the search result */
@@ -68,27 +78,16 @@ $(window).on('wheel', function(e){
     }
   });
 
-  $('input[type=search]').on('keyup', function (e) {
-    if (e.keyCode === 13){
-        
-        var container = $("#search-results").is(":visible");
-        $("#search-results").css({visibility: "false"});
-        $("#search-results").css({ display: "none" });
-       
-    }
-  });
-
-
+  
 
 
 const search_function = function(e) {
-    console.log("entrou aqui");
-   
-   
+       
     var searchResults = [];
     e.preventDefault();
     var inputSearch = $('#search').val().trim();
     
+    $("#search").val("");
     var url = "http://api.tvmaze.com/search/shows?q="+inputSearch;
     
     $.ajax({
@@ -112,7 +111,7 @@ const search_function = function(e) {
          
         }
             
-   
+        
         $("#main").empty();
         $("#main").append("<br>");
             searchResults.forEach(function(show,index) {   

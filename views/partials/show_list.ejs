@@ -6,7 +6,7 @@
                 <% if (count ===0) { %>
                     <div class="justify-content-center responsive">
                 <% }%>
-                
+                <h1> <%=  %></h1>
                     <div class="show-div mt-3 d-flex">
                         <a href="../shows/<%= shows_info[i].id %>"><img class="show-icon" alt="<%shows_info[i].name %>" src="<%-shows_info[i].image%>" /></a>
                         <div class="w-100">
@@ -14,8 +14,9 @@
                                 <a href="../shows/<%= shows_info[i].id %>"><h5 class="text-white m-0 small-title"><%= shows_info[i].name %> </h5></a>
                             </div>
                             <div class="text-break m-1 mr-1">
-                            <h6 class="mt-2 mb-0 font-weight-bold medium-font">Genre -  <span class="font-weight-normal"><%= shows_info[i].genre %></span> </h6>
-                           
+                                <% if (shows_info[i].genre.length > 0) { %>
+                                    <h6 class="mt-2 mb-0 font-weight-bold medium-font">Genre -  <span class="font-weight-normal"><%= shows_info[i].genre %></span> </h6>
+                           <% } %>
                             <h6 class="mt-1 medium-font font-weight-bold">Release Year - <span class="font-weight-normal"><%= shows_info[i].date %> </span></h6>
               
                             </div>
