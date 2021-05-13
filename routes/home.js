@@ -8,6 +8,7 @@ router.get('/signup',homeController.signup);
 
 
 router.post('/signup',validateUser.validate,homeController.signup_post);
+router.post('/login',homeController.login_post)
 
 router.get('/shows/:id',showController.seeShow);
 
