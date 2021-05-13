@@ -30,16 +30,19 @@ exports.signup = (req, res) => {
 }
 
 exports.signup_post = async (req, res) => {
+   
     await User.create({
         email:req.body.email,
         name:req.body.name,
         password:bcrypt.hashSync(req.body.password,8)}
         );
+        
     res.redirect("/");
 }
 
 exports.login_post = (req,res,next) =>{
-   User.findOne({
+   
+    User.findOne({
        email:req.body.email
     })
    .exec()
@@ -73,5 +76,6 @@ exports.login_post = (req,res,next) =>{
        })
 
    })
+   
 }
 

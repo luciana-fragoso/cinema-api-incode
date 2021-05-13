@@ -1,60 +1,55 @@
 
 
 $( document ).ready(function() {
-$("#search").on('keyup change',function(e) {search(e); });
 
+    var inputSearch;
+    
+    $("#search").on('keyup change',function(e) {search(e); });
     
     const search = function(e) {
-
-        if (e.keyCode === 13){
-            $("#search").val("");
-            $("#search-results").css({ display: "none" });
+        e.preventDefault();
+        var searchResults = [];
+        console.log(e.keyCode);
+        $("#search-results").empty();
+       
+        if ($("#search").val().length >= 3) {
+            if (e.keyCode === 13){
+                inputSearch = $('#search').val();
+                search_function(e);
         } else {
+        inputSearch = $('#search').val();
+        
 
-    e.preventDefault();
-    var searchResults = [];
-    $("#search-results").empty();
-    if ($("#search").val().length < 3) { 
-        $("#search-results").css({ display: "none" });
-    }
-  
-    if ($("#search").val().length >= 3) {
+        var url = "http://api.tvmaze.com/search/shows?q="+inputSearch;
 
-    
-    var inputSearch = $('#search').val();
-    var url = "http://api.tvmaze.com/search/shows?q="+inputSearch;
-
-    $.ajax({
-        method: "GET",
-        url: url
-        })
-    .done(function(response) {
-        for (var i=0;(i<6) && i<response.length;i++){
-            if ((response[i].show.image) !== null) {
-                showObj = {};
-                showObj.id = response[i].show.id;
-                showObj.name = response[i].show.name;
-                showObj.genre = JSON.stringify(response[i].show.genres);
-                showObj.image = response[i].show.image.medium;
-                searchResults.push(showObj);
-            }
-        }
-        searchResults.forEach(function(currentMatch,index) {   
-            $("#search-results").append(
-                "<div class='d-flex w-100'>"+
-                "<div class='show-search-image'>"+
-                "<a href='../shows/"+currentMatch.id+"'><img class='very-small-icon' src='"+currentMatch.image+"' alt='"+currentMatch.name+" icon' /></a></div>"+
-                "<div class='show-search-list'>"+
-                "<a class='d-block text-secondary' href='../shows/"+currentMatch.id+"'>"
-                +currentMatch.name+"</a></div></div>");     
+        $.ajax({
+            method: "GET",
+            url: url
             })
-            $("#search-results").css({ display: "block" });
-            
-            
-   
-    })
+        .done(function(response) {
+            for (var i=0;(i<6) && i<response.length;i++){
+                if ((response[i].show.image) !== null) {
+                    showObj = {};
+                    showObj.id = response[i].show.id;
+                    showObj.name = response[i].show.name;
+                    showObj.genre = JSON.stringify(response[i].show.genres);
+                    showObj.image = response[i].show.image.medium;
+                    searchResults.push(showObj);
+                }
+            }   
+            searchResults.forEach(function(currentMatch,index) {   
+                $("#search-results").append(
+                    "<div class='d-flex w-100'>"+
+                    "<div class='show-search-image'>"+
+                    "<a href='../shows/"+currentMatch.id+"'><img class='very-small-icon' src='"+currentMatch.image+"' alt='"+currentMatch.name+" icon' /></a></div>"+
+                    "<div class='show-search-list'>"+
+                    "<a class='d-block text-secondary' href='../shows/"+currentMatch.id+"'>"
+                    +currentMatch.name+"</a></div></div>");     
+                })
+                $("#search-results").css({ display: "block" });
+            });
+        }
     }
-}
 }
 
 //* events to close the search result */
@@ -85,9 +80,9 @@ const search_function = function(e) {
        
     var searchResults = [];
     e.preventDefault();
-    var inputSearch = $('#search').val().trim();
-    
     $("#search").val("");
+    $("#search-results").css({ display: "none" });
+ 
     var url = "http://api.tvmaze.com/search/shows?q="+inputSearch;
     
     $.ajax({
@@ -144,7 +139,10 @@ const search_function = function(e) {
 
 }
 
-$(document).on("submit",function(e) {search_function(e)});
+$("#search-button").on("click",function(e) {
+    
+    inputSearch = $('#search').val().trim();
+    search_function(e)});
 });
 
 

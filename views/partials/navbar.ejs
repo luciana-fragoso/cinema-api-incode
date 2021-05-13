@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <form class="form-inline search-form">
+<div class="d-flex flex-row searchbar">
+  <div class="p-2 my-select">
     <select class="custom-select mr-sm-2" id="select-id">
       <option selected disabled>Genre</option>
       <option value="Comedy">Comedy</option>
@@ -13,30 +13,30 @@
       <option value="Adventure">Adventure</option>
       <option value="Science-Fiction">Science-Fiction</option>
     </select>
-    <input class="form-control search-input mr-sm-2" type="search" autocomplete="off"  name="search" id="search" placeholder="Search by movie title or genre">
-    
-    <button class="btn btn btn-light font-weight-bold my-2 my-sm-0" id="search-button">Search</button>
-  </form>
-  
-  <button class="navbar-toggler" type="submit" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav font-weight-bold">
-      <li class="nav-item">
-        <a class="nav-link text-white" href="../login">Login <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="../signup">Sign up</a>
-      </li>
-     </ul>
-     </div>
 
-  </nav>
-  <div id="search-results" class="overflow-auto">
+  </div>
+  <div class="p-2 my-input">
+    <input class="form-control search-input mr-sm-2" type="search" autocomplete="off"  name="search" id="search" placeholder="Search by movie title or genre">
+
+  </div>
+  <div class="p-2 my-button">
+
+    <button class="btn btn btn-light font-weight-bold my-2 my-sm-0" type="button" id="search-button">Search</button>
+  </div>
+</div>
+      
+<div class="d-flex flex-row">
+  <div class="p-2 my-select bg-light">
+ 
+  </div>
+  <div class="p-2 my-input">
+    <div id="search-results" class="overflow-auto"></div>
+
+  </div>
+  <div class="p-2 my-button">
+  </div>
+</div>
+  
 
 
   </div>
-  <script src="/js/searchbar.js"></script>
-  <script src="/js/selectSearch.js"></script>
-  

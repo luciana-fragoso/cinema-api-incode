@@ -7,19 +7,23 @@
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/navbar') %>
+ 
     <div class="bg-light pt-3 pb-3 main" id="main">
         <div class="wrapper mx-auto">
             <a href="#" class="subtitle"><h2 class="mt-3">Login</h2></a>
             <img src="/images/user.png" class="pt-2 pb-2 user-icon" alt="User Icon" />
-            <div class="text-left form-group mt-3 ">
+            <div class="text-left form-group mt-3">
+              <form action="../login" id="login-form" name="login-form" method="POST">
                 <input type="email" class="form-control mx-auto login-input" id="email" placeholder="e-mail">
             </div>
             <div class="text-left form-group mt-3 ">
                 <input type="password" class="form-control mx-auto login-input" id="password" placeholder="password">
             </div>
             <button type="submit" class="btn btn-secondary font-weight-bold mb-3 login-btn">OK</button>
-        </div>
+          </form>
+          </div>
     </div>
+   
     <%- include('../partials/footer') %>
 
   </body>

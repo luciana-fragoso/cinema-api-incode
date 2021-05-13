@@ -9,6 +9,15 @@ body {
 }
 
 /* HEADER STYLING RULES */
+.transition {
+    width: 100%;
+    height: 25px;
+    transition: height 1.5s; 
+}
+
+.transition:hover {
+    height: 60px;
+} 
 .header {
     align-items: center !important; 
     background-color: #ECECEC !important;
@@ -35,23 +44,35 @@ a,a:hover {
     }
 }
 /* NAVBAR STYLING RULES */
-.navbar {
-    width: 100%;           
-    position: absolute;
+.searchbar {
+    width: 100% !important;           
     background-color: #5DA2D5 !important;
+  
 }
-.search-form {
-    width: 590px;
-    margin-right: calc(calc(100% - 590px)/2) ; 
+.searchbar .my-select {
+    margin-left: 20%; 
+    width: 15%;
 }
+.searchbar .my-input {
+    width: 30%;
+}
+.searchbar .my-button {
+    margin-right: 20%; 
+    text-align: right;
+    width: 15%;
+}
+
 .search-input {
-    width: 300px !important;
+    width: 100% !important;
+}
+.searchbar .my-button button {
+    width: 100%;
 }
 #search-results{
     background-color: #D3D3D3;
     border-radius: 10px;
-    position:absolute;
-    width: 300px;
+  
+    width: 100%;
     padding: 0px;
     border-top: 0px;
     max-height: 150px; 
@@ -59,7 +80,7 @@ a,a:hover {
     top: 30% !important;
     display: none;
     font-weight: bold;
-    z-index: 1;
+    z-index:9;
 }
 
 ::-webkit-scrollbar {
@@ -96,54 +117,36 @@ a,a:hover {
     margin-left: 7px;
 }
 
-nav ul { order:1;}
-nav form { order: 2;}
+
 @media screen and (max-width: 992px) {
-    nav form {
-        order: 0 !important;
-    }
-
-    nav ul {
-        order: 1 !important;
-    }
-    nav {
-
-        padding: 4px  2px 4px 2x!important;
-    }
-    .search-input,#search-results {
-        width: 50% !important;
-        font-size: 10px !important;    
-    }
-    .search-form select {
-        width: 65px;
-        font-size: 10px !important;
-        padding-left: 2% !important;
-    }
-    .navbar-toggler{
-        padding: 2% !important;
-    }
-    .navbar-toggler-icon{
-        height: 20px !important;
-        padding: 0px;
-    }
-    .search-form {  
-      width: 80%;
-      margin-right: 0px;
-  
-    }
-    .search-form button {
-        font-size: 10px;
-        width: 50px;
-        padding-left: 1%;
-        padding-right: 1%; 
-    }
-  
+    
+.searchbar .my-select {
+    margin-left: 2%; 
+    width: 25%;
+}
+.searchbar .my-select select , .searchbar .my-input input , .searchbar .my-button button {
+    font-size: 12px;
+}
+.searchbar .my-input {
+    width: 46%;
+}
+.searchbar .my-button {
+    margin-right: 2%; 
+    text-align: right;
+    width: 25%;
+}
+.searchbar .my-button button {
+    margin: 0px !important;
+ 
+}
 }
 /* LOGIN STYLING RULES */
 .main {
-    position:relative;
-    flex: 1;
-    margin-top: 0px !important;
+    
+   
+   z-index: -1;
+   
+   width: 100%;
 }
 .wrapper {
     text-align: center;
@@ -219,7 +222,7 @@ ul {
 }
 
 .sign-up-div :nth-child(1) { order: 1;}
-.sign-up-div :nth-child(2) { order: 3;}
+.sign-up-div :nth-child(2) { order: 3 !important;}
 .sign-up-div :nth-child(3) { order: 2;}
 .sign-up-div :nth-child(4) { order: 4;}
 .signup-input {

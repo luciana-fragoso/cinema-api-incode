@@ -23,6 +23,7 @@ $( document ).ready(function() {
                     showObj.name = show.name;
                     showObj.genre = show.genres;
                     showObj.image = show.image.medium;
+                    showObj.year = show.premiered;
                     searchResults.push(showObj);
                 }
                    
