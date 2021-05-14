@@ -1,6 +1,8 @@
 const User = require("../model/user");
 const axios = require('axios').default;
-var bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
+const secret = require('../config/server')
 
 exports.homepage = async (req, res) => {
     
@@ -38,40 +40,50 @@ exports.signup_post = async (req, res) => {
     res.redirect("/");
 }
 
-exports.login_post = (req,res,next) =>{
-   User.findOne({
-       email:req.body.email
-    })
-   .exec()
-   .then(user =>{
-       if(user.length<1){
-           return res.status(401).json({
-               message:'Authorization failed'
-           });
-       }
-       bcrypt.compareSync(req.body.password,user[0].password,(err,result) =>{
-           if(err){
+exports.login_post = async (req,res,next) =>{
+    await User.findOne({
+        where:
+        {
+        email:req.body.email
+        }
+     })
+    .then(user =>{
+        console.log(user);
+        if(!user){
             return res.status(401).json({
-                message:'Authorization failed'});
-           }
-           if(result){
-               console.log('login successful');
-               return res.status(200).json({
-                   message:'Login sucessful'
-                   
-               });
-           }
-           res.staus(401).json({
-               message:'Authorization failed'
-           });
-       });    
-   })
-   .catch(err =>{
-       console.log('error');
-       res.status(500).json({
-           error:err
-       })
+                message:'Authorization failed'
+            });
+        }
+        bcrypt.compare(req.body.password,user.password,function(err,result) {
+            if(err){
+             return res.status(401).json({
+                 message:'Authorization failed'});
+            }
+           else if(result){
+               let token = jwt.sign({id:user.id},process.env.jwt_key,
+                 {
+                    expiresIn:"1h"
+                
+                })
+                return res.status(200).json({
+                    message:'Login sucessful',
+                    token: token
+                });
+                //res.redirect('/');
+            }
+            else
+                res.status(401).json({
+                message:'Authorization failed'
+            
+            });
+        });    
+    })
 
-   })
-}
-
+    .catch(err =>{
+        console.log('error');
+        res.status(500).json({
+            error:err
+        })
+ 
+    })
+ }
