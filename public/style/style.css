@@ -9,15 +9,6 @@ body {
 }
 
 /* HEADER STYLING RULES */
-.transition {
-    width: 100%;
-    height: 25px;
-    transition: height 1.5s; 
-}
-
-.transition:hover {
-    height: 60px;
-} 
 .header {
     align-items: center !important; 
     background-color: #ECECEC !important;
@@ -26,27 +17,35 @@ body {
     font-family: 'Archivo Black', sans-serif;
 }
 .header-icon {
-    height: 120px;
+    height: 80px;
     width: auto;
 }
 a,a:hover {
+    font-weight: bold;
     text-decoration: none !important;
 }
+.header-ul li {
+    width: 70px !important;
+}
+.header-ul li:nth-child(3){
+    width: 30px !important;
+}
 
-@media (max-width: 992px) {
+@media (max-width: 688px) {
     .main-title {
-       font-size: 26px;
+        font-size: 22px;
+    }
+    .header-ul li {
+        margin-right: 2% !important;     
     }
 
-    .header-icon {
-        height: 80px;
-        width: auto;
-    }
 }
 /* NAVBAR STYLING RULES */
 .searchbar {
     width: 100% !important;           
     background-color: #5DA2D5 !important;
+    visibility: visible;
+    margin: 0px !important;
   
 }
 .searchbar .my-select {
@@ -71,7 +70,7 @@ a,a:hover {
 #search-results{
     background-color: #D3D3D3;
     border-radius: 10px;
-  
+    
     width: 100%;
     padding: 0px;
     border-top: 0px;
@@ -142,10 +141,6 @@ a,a:hover {
 }
 /* LOGIN STYLING RULES */
 .main {
-    
-   
-   z-index: -1;
-   
    width: 100%;
 }
 .wrapper {
@@ -240,26 +235,19 @@ ul {
     margin: auto;
 }
 /* SHOW LIST STYLING RUES */
-.show-div{
-    width: 28%;
-    margin-right: 3%;
-    background-color: #F1F4FFFF;
-    border-radius: 5px;
-}
-.show-div:nth-child(3) {
-    margin-right: 0px !important;
-}
-
-.show-icon{
-    height: 180px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+.card-index{
+    background-color: #FFFFFF;
+    width: 185px;
+    padding: 15px;
+    border-radius:6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    position:relative;
+    margin: 5px;
 }
 
-.title-div{
-    background-color: 	#5DA2D5;
-    opacity: 0.7;
-    border-top-right-radius: 5px;
+.card-img-top{
+    height: 215px !important;
+    width: auto !important;
 }
 .responsive {
     display: flex;
@@ -270,41 +258,38 @@ ul {
 .medium-size {
     display: none;
 }
+
+
 @media (max-width: 992px) {
-
-.show-div{
-    width: 45%;
-    margin:auto;
-}
-.show-div:nth-child(3) {
-    margin: auto !important;
-    margin-top: 3% !important;
-}
-.medium-font {
-    font-size: 12px
-}
-.small-title {
-    font-size: 16px !important;
-}
-
-.medium-size {
-    display: block !important;
-    width: 90%;
-}
-.large-size {
-    display: none !important;
-}
-}
-@media (max-width: 650px) { 
-
-    .responsive {
-        display: block;
+    .card-index{
+        width: 156px!important;
+        padding: 0.5px !important;
     }
-    .show-div{
-        width: 65%;
-        margin:auto;
+    .medium-size {
+        display: block !important;
+        width: 100%;
     }
+    .large-size {
+        display: none !important;
+    }
+    }
+
+    @media (max-width: 500px) {
+.responsive {
+    display: block;
 }
+    .card-index{
+        
+    margin:  5%  auto !important;
+    width: 280px !important;
+    }
+
+    .card-img-top{
+        height: auto !important;
+        width: 280px !important;
+    }
+
+    }
 /* search page styling rules */
 .search-icon{
     height: 200px !important;
@@ -318,4 +303,45 @@ ul {
     width: 80% !important;
     margin: auto;
     background-color: #F1F4FFFF;
+}
+
+.card-horizontal {
+    display: flex !important;
+  
+    background-color: #FFFFFF;
+   width: 70%;
+    margin: auto;
+    flex: 1 1 2;
+    margin-bottom: 2%;
+}
+
+.card-horizontal  {
+    border: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+
+.card-horizontal .card-footer {
+    border-top: 0px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+} 
+.search-icon-card img {
+height: 220px;
+
+}
+.card-horizontal  img , .card-horizontal .card-body{
+    border: 0px !important;
+}
+@media (max-width: 550px) {
+.card-horizontal {
+    width: 280px;
+    display: block !important;
+}
+.search-icon-card{
+    width: 80% !important;
+    margin-right: 0px !important;
+}
+.search-icon-card img {
+    width: 280px;
+    height: auto !important;
+}
+
 }
