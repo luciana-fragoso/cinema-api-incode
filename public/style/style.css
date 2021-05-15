@@ -146,7 +146,8 @@ a,a:hover {
 .wrapper {
     text-align: center;
     width: 60%;
-    border: 1.5px solid #6C757D;
+    /*border: 1.5px solid #6C757D;*/
+    border: 1.5px solid rgb(255, 255, 255);
     background-color: #F8F9FA;
     border-radius: 15px;
 }
@@ -234,7 +235,7 @@ ul {
     width: 200px !important;
     margin: auto;
 }
-/* SHOW LIST STYLING RUES */
+/* SHOW LIST STYLING RULES */
 .card-index{
     background-color: #FFFFFF;
     width: 185px;
@@ -307,9 +308,8 @@ ul {
 
 .card-horizontal {
     display: flex !important;
-  
     background-color: #FFFFFF;
-   width: 70%;
+    width: 70%;
     margin: auto;
     flex: 1 1 2;
     margin-bottom: 2%;
@@ -345,3 +345,115 @@ height: 220px;
 }
 
 }
+
+/* SHOWS PAGE STYLING RULES*/
+
+/* 2 COLUMN LAYOUT */
+
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Flexbox */
+  .row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+  }
+
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .column {
+        width: 100%;
+        }
+    }
+    /* Poster */
+    img.show-icon{
+        width: 80%;
+        align-content: center;
+    }
+
+    /* Font styling */
+    h1#show-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f0c819;
+    text-shadow: 1px 1px 2px #0c0c0cbe;;
+    }
+
+    h1#show-genre {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 0px !important;
+    color: #0c0c0c !important;   
+    }
+
+    h1#show-year{
+    font-size: 0.8rem;
+    font-weight: light;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 5px !important;
+    color: #6c757d !important;
+    } 
+
+    h4#heading{
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    margin-top: 20px;
+    color: #f0c819;
+    text-shadow: 0.2px 0.2px 0.5px #0c0c0c78;;
+    }
+
+    h6#cast-actors{
+    font-size: 0.8rem;
+    font-weight:200;
+    color:#6c757d !important;
+    line-height: 1;
+    }
+
+    div#color.column{
+       /* background-color:#0f7ad8 !important;*/
+    }
+
+    /* Summary styling */
+    p{
+    font-size: 0.7rem!important;
+    line-height: 1.5!important;
+    color:#6c757d !important;
+    margin-top: 10px!important;
+    font-weight:500!important;
+    }
+
+    /* Style content in the box */
+    div.row {
+        margin: 30px 30px 30px 30px;
+       /* background-color: #F6DF84;*/  
+    }
+    div#wp-shows.wrapper.mx-auto{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: left;
+    width: 60% !important; /*card width*/
+    }
+
+    h4#psynopsis{
+    font-size: 50rem !important;
+    font-weight: bold !important;
+    color: #0c0c0c !important;
+    margin-top: 20px;
+    }
+
+    .Synopsis{
+    /*background-color:#d87a0f !important;*/
+     }

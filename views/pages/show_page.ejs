@@ -10,22 +10,36 @@
     
     <div class="bg-light pt-3 pb-3 main " id="main">
        
-        <div class="wrapper mx-auto">
+        <div class="wrapper mx-auto"  id="wp-shows">
 
+          <div class="row">
+              
+              <div class="column">
+                
+                <img class="show-icon" src="<%- locals.show.image%>"/>
+              </div>
 
-          <img class="show-icon" src="<%- locals.show.image%>"/>
-          <h1><%= locals.show.name %></h1>
-          <h1><%= locals.show.genres %></h1>
-          <h1><%= locals.show.year %></h1>
-          
-          <h4>Cast</h4>
-          <% for (var i=0;(i<locals.show.cast.length) && (i<6) ;i++) { %>
-            <h6><%= locals.show.cast[i] %></h6>
-          <% } %>
-          <%- locals.show.summary %>
-        
-    </div>
-       </div>
+              <div class="column"id="color">
+                <h1 id="show-title"><%= locals.show.name %></h1>
+                <h1 id="show-genre"><%= locals.show.genres %></h1>
+                <h1 id="show-year"><%= locals.show.year.split("-")[0] %></h1>
+                
+                <h4 id="heading">Cast</h4>
+                <% for (var i=0;(i<locals.show.cast.length) && (i<6) ;i++) { %>
+                  <h6 id="cast-actors"><%= locals.show.cast[i] %></h6>
+                <% } %>
+              </div>
+
+              <div class="Synopsis">
+                <h4 id="heading">Synopsis<%- locals.show.summary %></h4>
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+       
+
     
     
     <%- include('../partials/footer') %>
