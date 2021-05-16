@@ -1,0 +1,38 @@
+.star-icon {
+    color: #FFA500;
+}
+.star-position{
+    text-align: center;
+}
+
+.show-rating{
+    font-size: 24px !important;
+    font-weight: bold;
+}
+
+.star-rating:hover {
+    text-shadow: 1px 1px 2px #0c0c0cbe;
+    cursor: pointer;
+}
+.rate_width{
+  
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+.rate_width:nth-child(5)  {
+
+margin-left: 0px !important;
+
+}
+
+
+/* overlaying search div */
+
+.searchanswer {
+    width: 100%;
+    position: absolute;
+    top: 130px !important;
+    left: 0;
+    z-index: 9 ;
+}

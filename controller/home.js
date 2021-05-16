@@ -1,21 +1,48 @@
 const User = require("../model/user");
+const jwt = require("jsonwebtoken");
+const showController = require("../controller/show");
 const axios = require('axios').default;
 var bcrypt = require('bcryptjs');
 
+
+
 exports.homepage = async (req, res) => {
     
-    const shows_api =  await axios.get('http://api.tvmaze.com/shows?page=1');
+    const shows_api =  await axios.get('http://api.tvmaze.com/shows');
+    const average = await showController.getRatingsIndex();
+
+ 
     var shows_info = [];
+    
+    var ids = [];
+    var avgs = [];
+    
+    average[0].find(function(show){
+        ids.push(show.show_id);
+        avgs.push(show.average);
+    });
+
    
-    for (var key in shows_api.data) {
-      shows_info.push({
-          id:shows_api.data[key].id,
-          name:shows_api.data[key].name,
-          date:shows_api.data[key].premiered,
-          genre:shows_api.data[key].genres,
-          image:shows_api.data[key].image.medium
-        });
+    for (var i=0;i<50;i++){
+        let show = shows_api.data[i];
+        let show_average = null;
+
+        if (ids.includes(show.id)) {
+                            
+            show_average = parseFloat(avgs[ids.indexOf(show.id)]).toFixed(1);
+           
+        }
+       
+            shows_info.push({
+                id:show.id,
+                name: show.name,
+                date: show.premiered,
+                genre: show.genres ,
+                image : show.image.medium,
+                average : show_average
+            });
     }
+ 
   
 
     res.render("pages/index",{shows_info:shows_info});
@@ -40,42 +67,42 @@ exports.signup_post = async (req, res) => {
     res.redirect("/");
 }
 
-exports.login_post = (req,res,next) =>{
-   
+exports.login_post = async (req,res,next) =>{
+
+    /*
     User.findOne({
-       email:req.body.email
-    })
-   .exec()
-   .then(user =>{
-       if(user.length<1){
-           return res.status(401).json({
-               message:'Authorization failed'
-           });
-       }
-       bcrypt.compareSync(req.body.password,user[0].password,(err,result) =>{
-           if(err){
-            return res.status(401).json({
-                message:'Authorization failed'});
-           }
-           if(result){
-               console.log('login successful');
-               return res.status(200).json({
-                   message:'Login sucessful'
-                   
-               });
-           }
-           res.staus(401).json({
-               message:'Authorization failed'
-           });
-       });    
-   })
-   .catch(err =>{
-       console.log('error');
-       res.status(500).json({
-           error:err
+        where: { 
+            email: req.body.email
+        }
+     })
+    .then(user =>{
+        console.log(user);
+    let token = jwt.sign({id:user.id},''+process.env.jwt_key,
+        {
+           expiresIn:"1h"
        })
-
-   })
+       //return done(null, false, req.flash('message', 'Login successful' ))
+       return res.cookie('token', token, {
+           secure: false, // set to true if your using https
+           httpOnly: true,
+         }).json({
+           msg:'Login sucessful',
+           token: token,
+         }); 
+      /* return res.status(200).send({
+           msg:'Login sucessful',
+           token: token
+       });*/
+       //res.redirect('/');});
+    
+       console.log("LOGIN  CODE MUST GO HERE");
+       res.redirect("/");    
    
-}
+   
+};
 
+exports.logout = function(req,res){
+    console.log("LOGOUT CODE MUST GO HERE");
+    res.redirect("/");
+
+}

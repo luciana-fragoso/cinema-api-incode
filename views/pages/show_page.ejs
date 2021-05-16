@@ -7,28 +7,151 @@
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/navbar') %>
-    
+    <% var user_id = 1 %>
     <div class="bg-light pt-3 pb-3 main " id="main">
        
-        <div class="wrapper mx-auto">
+        <div class="wrapper mt-3 mb-3 mx-auto" >
+
+          <div class="show-info-page">
+              
+              <div class="image-column">
+                  <img class="show-icon" alt="Show Poster" src="<%- locals.show.image%>"/>
+              </div>
+
+              <div class="text-column" id="color">
+                <div class="d-flex">
+                  <h1 class="show-title w-75 mb-0"><%= locals.show.name %></h1>
+                  <div class="d-block w-100 star-position text-right show-page-star" >
+                    <span id="current_rating" class='text-dark ml-1 show-rating'><%= locals.show.rating %></span> 
+                      <i class="fa fa-star fa-2x mb-0 star-icon"  data-id="<%- locals.show.id %>" id="star-id" aria-hidden="true" ></i>
+
+                        <% if (user_id !== null) { %>
+                          <script>    
+                              document.getElementById("star-id").setAttribute("data-toggle", "popover"); 
+                          </script>
+                          <% } else { %>
+                            <script>    
+                        
+                              document.getElementById("star-id").setAttribute("data-target", "#modal-login"); 
+                              document.getElementById("star-id").setAttribute("data-toggle", "modal"); 
+                          </script>
+
+                            <%  } %>
+
+                   </div>
+                </div>
+                      
+
+                      
+                      <% if (locals.show.hasRated === false) { %>
+                      <div id='ratings-stars' class='rating-stars d-none'> 
+                          <div>
+                            <div>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-1" onclick='setRatings(1,"<%- user_id %>","<%- locals.show.id %>")' ></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-2" onclick='setRatings(2,"<%- user_id %>","<%- locals.show.id %>")'></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-3" onclick='setRatings(3,"<%- user_id %>","<%- locals.show.id %>")'></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-4" onclick='setRatings(4,"<%- user_id %>","<%- locals.show.id %>")' ></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-5" onclick='setRatings(5,"<%- user_id %>","<%- locals.show.id %>")'></i>
+                            </div>
+                            <div>
+                              <span class="rate_width">1</span>
+                              <span class="rate_width">2</span>
+                              <span class="rate_width">3</span>
+                              <span class="rate_width"> 4</span>
+                              <span class="rate_width"> 5</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-6" onclick='setRatings(6,"<%- user_id %>","<%- locals.show.id %>")' ></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-7" onclick='setRatings(7,"<%- user_id %>","<%- locals.show.id %>")'></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-8" onclick='setRatings(8,"<%- user_id %>","<%- locals.show.id %>")'></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-9" onclick='setRatings(9,"<%- user_id %>","<%- locals.show.id %>")' ></i>
+                              <i class='fa fa-star fa-2x mb-0 star-icon star-rating' aria-hidden='true' id="srating-10" onclick='setRatings(10,"<%- user_id %>","<%- locals.show.id %>")'></i>
+                            </div>
+                            <div>
+                              <span class="rate_width">6</span>
+                              <span class="rate_width">7</span>
+                              <span class="rate_width">8</span>
+                              <span class="rate_width"> 9</span>
+                              <span class="rate_width "> 10</span>
+                            </div>    
+                          </div>
+                        </div>
+                        <% } else { %>
+                          <div id='ratings-stars' class='rating-stars d-none'>
+                            <p class="mt-2"> You have already rated this show </p> 
+                            <p class="font-weight-bold text-center"> You gave it <%- locals.show.user_rating %> stars</p>
+                            </div>
+                            <% } %>
+                <h1 class="show-year mt-0"><%= locals.show.year.split("-")[0] %></h1>
+                <% if (locals.show.genres.length > 0) { %>
+         
+                    <p class="show-genre"><%= locals.show.genres.join(" - ") %></p>
+                    <% } %>
+                 
+              
+              
+                
+                <h4 class="heading mt-0">Cast</h4>
+                <% for (var i=0;(i<locals.show.cast.length) && (i<6) ;i++) { %>
+                  <h6 class="cast-actors"><%= locals.show.cast[i] %></h6>
+                <% } %>
+                <h4 class="heading mb-0">Synopsis</h4>
+                <div class="mt-0 synopsis text-justify pr-2 bg-light">
+                 <%- locals.show.summary %>
+                </div>
+            
+
+             
+          </div>
+
+        </div>
+  
+      </div>
+</div>
+
+<%- include('../partials/modalLogin') %>
+
+<script>
+
+$( document ).ready(function() {
 
 
-          <img class="show-icon" src="<%- locals.show.image%>"/>
-          <h1><%= locals.show.name %></h1>
-          <h1><%= locals.show.genres %></h1>
-          <h1><%= locals.show.year %></h1>
-          
-          <h4>Cast</h4>
-          <% for (var i=0;(i<locals.show.cast.length) && (i<6) ;i++) { %>
-            <h6><%= locals.show.cast[i] %></h6>
-          <% } %>
-          <%- locals.show.summary %>
-        
-    </div>
-       </div>
+    $("[data-toggle=popover]").popover({
+        "placement": 'bottom' 
+        ,"trigger" : 'manual'
+        , "html": true
+        , "container": 'body'
+        , "sanitize" : false
+        ,"content": function() {
+          return $('#ratings-stars').html();
+        }}).on("mouseenter", function () {
+          var _this = this;
+          $(this).popover("show");
+          $(this).siblings(".popover").on("mouseleave", function () {
+            $(_this).popover('hide');
+          });
+        }).on("mouseleave", function () {
+          var _this = this;
+          setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide")
+          }
+        }, 100);
+      });      
+      });
+
+         
+ 
+</script>
+
+
     
     
     <%- include('../partials/footer') %>
 
   </body>
 </html>
+
+

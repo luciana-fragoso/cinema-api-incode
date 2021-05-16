@@ -1,3 +1,4 @@
+
 const DataTypes  = require("sequelize");
 const sequelize = require("../util/database");
 const User = require("./user");
@@ -8,11 +9,11 @@ const Rating = sequelize.define("Rating", {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "users",
+        model: "Users",
         key: "id"
       }
   },
-  movie_id: {
+  show_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

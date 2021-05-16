@@ -1,0 +1,37 @@
+<div id='modal-login' class='modal fade' role='dialog'>
+    <div class='modal-dialog'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      <h5 class='modal-title'>You need to log in to rate a show</h5>
+      <button type='button' class='close' data-dismiss='modal'>&times;</button>
+      
+    </div>
+    <div class='modal-body'>
+    <h2 class='mt-3 font-weight-bold text-center mb-3'>Login</h1>
+              <div class='text-left form-group mt-3'>
+                <form action='../login' id='login-form' name='login-form' method='POST'>
+                  <input type='email' name='email' value="" class='form-control mx-auto login-input' id='email' placeholder='e-mail'>
+              </div>
+              <div class='text-left form-group mt-3 '>
+                  <input type='password' value="" name='password' class='form-control mx-auto login-input' id='password' placeholder='password'>
+              </div>
+              
+          
+      
+    </div>
+    <div class='modal-footer'>
+      <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+      <button type='submit' class='btn btn-success'>Confirm</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+
+  <script>
+$('.modal').on('hidden.bs.modal', function(){
+    $(this).find('form')[0].reset();
+});
+
+
+  </script>

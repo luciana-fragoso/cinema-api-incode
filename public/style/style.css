@@ -2,11 +2,18 @@
 html {
     height: 100vh;
 }
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+body{ height:100vh; margin:0; }
+
+
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+  background-color: #F8F9FA !important;
 }
+
+
 
 /* HEADER STYLING RULES */
 .header {
@@ -61,6 +68,22 @@ a,a:hover {
     width: 15%;
 }
 
+.searchanswer .my-select-search {
+    margin-left: 20%; 
+    min-width: 15% !important;
+ 
+}
+.searchanswer .my-input-search {
+    min-width: 30% !important;
+}
+.searchanswer .my-button-search {
+    margin-right: 20%; 
+    text-align: right;
+    min-width: 15% !important;
+    
+   
+}
+
 .search-input {
     width: 100% !important;
 }
@@ -68,18 +91,13 @@ a,a:hover {
     width: 100%;
 }
 #search-results{
-    background-color: #D3D3D3;
-    border-radius: 10px;
-    
+    background-color: #6c757d;
+    border-radius: 10px;  
     width: 100%;
-    padding: 0px;
     border-top: 0px;
     max-height: 150px; 
-    left: 39.2%;  
-    top: 30% !important;
-    display: none;
     font-weight: bold;
-    z-index:9;
+   
 }
 
 ::-webkit-scrollbar {
@@ -129,7 +147,7 @@ a,a:hover {
 .searchbar .my-input {
     width: 46%;
 }
-.searchbar .my-button {
+.searchbar .my-button  {
     margin-right: 2%; 
     text-align: right;
     width: 25%;
@@ -138,6 +156,15 @@ a,a:hover {
     margin: 0px !important;
  
 }
+.searchanswer .my-select-search ,  .searchanswer .my-button-search {
+    min-width: 0% !important;
+    margin-left: 0% !important;
+}
+.searchanswer .my-input-search {
+    min-width: 80% !important;
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+}
 }
 /* LOGIN STYLING RULES */
 .main {
@@ -145,26 +172,25 @@ a,a:hover {
 }
 .wrapper {
     text-align: center;
-    width: 60%;
-    border: 1.5px solid #6C757D;
+    width: 80%;
     background-color: #F8F9FA;
     border-radius: 15px;
 }
 .subtitle, .subtitle:hover{
-    color: #F78888;
     font-family: 'Bree Serif', serif;
+    color: #FFA500;
+    text-shadow: 1px 1px 2px #0c0c0cbe;
 }
 .login-input{
-    width: 50% !important;
+    width: 450px !important;
 }
-.user-icon {
-    height:  75px;
-}
+
 .login-btn {
+    margin-top: 10px;
     width: 160px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 556px) {
     .wrapper { 
         width: 90% !important;
     }
@@ -174,14 +200,15 @@ a,a:hover {
 }
 /* FOOTER STYLING RULES */
 .footer {
+    margin-top:auto;
+    min-height: 8vh;
+    
     background-color: #F6DF84;
-   
-    height: 8vh;
     align-items: center !important; 
 }
 /* SIGN UP STYLING RULES */
 .signup-input{
-    width: 250px !important;
+    width: 350px !important;
 }
 .password-div {
     background-color: #daeaf5;
@@ -192,6 +219,8 @@ a,a:hover {
     line-height: 30px;
     font-weight: 600;
     color: #286894;
+    margin-top: 20px;
+    margin-bottom: 15px;
     overflow-wrap: break-word;
 }
 .password-div:hover {
@@ -275,18 +304,20 @@ ul {
     }
 
     @media (max-width: 500px) {
+        
 .responsive {
     display: block;
 }
     .card-index{
-        
+        padding: 0px !important;
     margin:  5%  auto !important;
     width: 280px !important;
     }
 
     .card-img-top{
+        margin: 0px !important;
         height: auto !important;
-        width: 280px !important;
+        width: 278px !important;
     }
 
     }
@@ -345,3 +376,132 @@ height: 220px;
 }
 
 }
+
+
+/* SHOWS PAGE STYLING RULES*/
+
+/* 2 COLUMN LAYOUT */
+.image-column {
+    width: 40%; 
+  
+    margin-left: 5%;
+
+    
+   
+}
+.text-column {
+    width: 45%;
+    margin-right: 5%;
+
+  }
+  
+
+  /* Flexbox */
+  .show-info-page {
+    display: flex !important;
+  }
+      /* Poster */
+      img.show-icon{
+        width: 65%;
+        height: auto;
+        box-shadow: 0 4px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        
+    }
+
+
+  
+    @media screen and (max-width: 870px) {
+ 
+        
+        .image-column, .text-column {
+            width: 90%;
+            margin: auto !important;
+          }
+
+          .show-info-page {
+            display: block !important;
+          }
+
+          h1.show-title {
+              margin-top: 28px !important;
+          }
+          img.show-icon {
+              width: 80% !important;
+              margin: auto;
+          }
+          .show-page-star{
+              margin-top: 28px !important;
+              text-align: left !important;
+              margin-right: 5%;
+          }
+       
+    }
+
+
+    /* Font styling */
+    h1.show-title {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #FFA500;
+    text-align: left !important;
+    text-shadow: 1px 1px 2px #0c0c0cbe;
+    }
+
+    .show-genre {
+    font-size: 0.9rem !important;
+    font-weight: 600;
+    font-style: italic;
+    text-align: left !important;
+    margin-top: 0px !important;
+    color: #0c0c0c !important;   
+    }
+
+    .show-year{
+    font-size: 1.0rem;
+    font-weight: 600;
+    font-style: italic;
+    text-align: left !important;
+    color: #6c757d !important;
+    } 
+
+    .heading{
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    margin-top: 20px;
+    color: #FFA500;
+    text-align: left !important;
+    text-shadow: 0.2px 0.2px 0.5px #0c0c0c78;;
+    }
+
+    .cast-actors{
+    font-size: 0.8rem;
+    font-weight:200;
+    text-align: left !important;
+    color:#6c757d !important;
+    line-height: 1;
+    }
+
+  
+
+    /* Summary styling */
+  
+
+    /* Style content in the box */
+    div.row {
+        margin: 30px 30px 30px 30px;
+       /* background-color: #F6DF84;*/  
+    }
+   
+
+    h4#psynopsis{
+    font-size: 50rem !important;
+    font-weight: bold !important;
+    color: #0c0c0c !important;
+    margin-top: 20px;
+    }
+
+    .synopsis{
+      max-height: 150px;
+      overflow-y: auto;  
+   
+     }

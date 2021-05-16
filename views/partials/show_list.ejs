@@ -4,26 +4,40 @@
     <div class="mx-auto pb-4 mt-3 large-size">
         <% if (locals.shows_info) { %>
             <% count = 0 %>
-            <% for (var i=0;i<30;i++) { %>
+            <% for (var i=0;i<shows_info.length;i++) { %>
                 <% if (count === 0) { %>
                     <div class="justify-content-center responsive">
                 <% }%>
-                <div class="card card-index mt-3">
-                    <div class="card-footer mb-2">
-                        RATING  
+                <div class="card card-index mt-3 ">
+                    <div class="card-footer mb-2 w-100 p-1 d-flex">
+                      
+                        <div class="d-block w-100 star-position"  >
+                            <i class="fa fa-star fa-lg mb-0 star-icon" aria-hidden="true" >
+                                <% if (locals.shows_info[i].average !== null) { %>
+                                <span class='text-dark ml-1'><%= locals.shows_info[i].average %></span>
+                                <% } %>
+                            
+                            </i>
+                       
+                            </div>
+                       
+                        
                     </div>
                     <a href="../shows/<%= shows_info[i].id %>"><img class="card-img-top" alt="<%shows_info[i].name %>" src="<%-shows_info[i].image%>"></a>
                         <div class="card-body p-1">
-                            <a href="../shows/<%= shows_info[i].id %>"><h5 class="text-dark mt-1 small-title"><%= shows_info[i].name %> </h5></a>
-                            <% if (shows_info[i].genre.length > 0) { %>
-                                <h6 class="mt-2 mb-0 font-weight-bold medium-font">Genre</h6>
-                                <h6 class="font-weight-normal"><%= shows_info[i].genre %></h6>
+                            <a href="../shows/<%= shows_info[i].id %>"><h5   class="mt-1 font-weight-bold text-dark small-title"><%= locals.shows_info[i].name %> </h5></a>
+                            <% if (locals.shows_info[i].genre.length > 0) { %>
+                          
+                                <% for (var j=0;j<locals.shows_info[i].genre.length;j++){ %>
+                                    <h6 class="show-genre mt-0 mb-0"><%= locals.shows_info[i].genre[j] %></h6>
+                                <% } %>
                             <% } %>
-                            <h6 class="mt-1 mb-0 medium-font font-weight-bold">Release Year</h6>
-                            <h6 class="font-weight-normal mt-0"><%= shows_info[i].date.split("-")[0] %></h6>
+                            <h6 class="text-dark font-weight-bold mt-2 mb-0 ">Release Year</h6>
+                            <h6 class="font-weight-bold text-dark mt-0 show-year"><%= locals.shows_info[i].date.split("-")[0] %></h6>
                         </div>
                        
                 </div>
+                
                     
                 <% count++ %>
                 <% if (count === 5) { %>
@@ -37,32 +51,38 @@
         <% } %> <!-- end of if shows_info -->
     </div>
               
-        
-        
-        
-        
-            
-    
+         
     <div class="mx-auto pb-4 medium-size">
         <% if (locals.shows_info) { %>
             <% count = 0 %>
-            <% for (var i=0;i<30;i++) { %>
+            <% for (var i=0;i<shows_info.length;i++) { %>
                 <% if (count === 0) { %>
                     <div class="justify-content-center responsive">
                 <% }%>
                 <div class="card card-index">
-                    <div class="card-footer">
-                        RATING  
+                    <div class="card-footer mb-0 w-100 p-1 d-flex">
+                      
+                        <div class="d-block w-100 star-position"  >
+                        <i class="fa fa-star fa-lg mb-0 star-icon" aria-hidden="true" >
+                            <% if (locals.shows_info[i].average !== null) { %>
+                            <span class='text-dark ml-1'><%= locals.shows_info[i].average %></span>
+                            <% } %>
+                        
+                        </i>
+                   
+                        </div>
                     </div>
                     <a href="../shows/<%= shows_info[i].id %>"><img class="card-img-top" alt="<%shows_info[i].name %>" src="<%-shows_info[i].image%>"></a>
-                        <div class="card-body p-1">
-                            <a href="../shows/<%= shows_info[i].id %>"><h5 class="text-dark mt-1 small-title"><%= shows_info[i].name %> </h5></a>
-                            <% if (shows_info[i].genre.length > 0) { %>
+                        <div class="card-body p-2">
+                            <a href="../shows/<%= shows_info[i].id %>"><h5   class="mt-1 font-weight-bold text-dark small-title"><%= locals.shows_info[i].name %> </h5></a>
+                            <% if (locals.shows_info[i].genre.length > 0) { %>
                                 <h6 class="mt-2 mb-0 font-weight-bold medium-font">Genre</h6>
-                                <h6 class="font-weight-normal"><%= shows_info[i].genre %></h6>
+                                <% for (var j=0;j<locals.shows_info[i].genre.length;j++){ %>
+                                    <h6 class="show-genre mt-0 mb-0"><%= locals.shows_info[i].genre[j] %></h6>
+                                <% } %>
                             <% } %>
-                            <h6 class="mt-1 mb-0 medium-font font-weight-bold">Release Year</h6>
-                            <h6 class="font-weight-normal mt-0"><%= shows_info[i].date.split("-")[0] %></h6>
+                            <h6 class="text-dark font-weight-bold mt-2 mb-0 ">Release Year</h6>
+                            <h6 class="show-year font-weight-bold text-dark mt-0"><%= locals.shows_info[i].date.split("-")[0] %></h6>
                         </div>
                         
                     </div>
@@ -79,8 +99,3 @@
         
             
     </div>
-        
-        
-       
-
-

@@ -1,4 +1,8 @@
 
+
+
+
+<% var user_id = 1 %>
 <div class="mt-0 mb-0 header d-flex">
     <a href="../">
         <img src="/images/icon.png" class="ml-2 pb-3 pt-3 pl-1 header-icon" alt="Ratings Icon" />
@@ -8,12 +12,19 @@
     </a>
     <div class="ml-auto">
       <ul class="list-group list-group-horizontal-sm header-ul">
-        <li class="mr-3">
-          <a class="text-secondary" href="../login">Login <span class="sr-only">(current)</span></a>
-        </li>
-        <li  class="mr-3">
-          <a class="text-secondary" href="../signup">Sign up</a>
-        </li> 
+        
+        <% if (user_id !== null) {%>
+          <li class="mr-3">
+            <a class="text-secondary" href="../login">Login <span class="sr-only">(current)</span></a>
+          </li>
+          <li  class="mr-3">
+            <a class="text-secondary" href="../signup">Sign up</a>
+          </li> 
+        <% } else { %>
+          <li  class="mr-3">
+            <a class="text-secondary" href="../logout">Logout</a>
+          </li> 
+        <% } %>
       </ul>
     </div>  
 </div>

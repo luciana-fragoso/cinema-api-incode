@@ -1,9 +1,10 @@
+
 const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(
-    DB_NAME="db_schema",
-    DB_USER="newuser",
-    DB_PASS="pass",
+    DB_NAME="DB_SCHEMA",
+    DB_USER="root",
+    DB_PASS="Mxyzptlk8043.",
   {
     host: "localhost",
     dialect: "mysql",
