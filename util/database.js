@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(
     DB_NAME="DB_SCHEMA",
-    DB_USER="root",
+    DB_USER="your_username",
     DB_PASS= "your password",
   {
     host: "localhost",
