@@ -1,8 +1,5 @@
 
-
-
-
-<% var user_id = 1 %>
+<script> console.log(document.cookie) </script>
 <div class="mt-0 mb-0 header d-flex">
     <a href="../">
         <img src="/images/icon.png" class="ml-2 pb-3 pt-3 pl-1 header-icon" alt="Ratings Icon" />
@@ -12,8 +9,8 @@
     </a>
     <div class="ml-auto">
       <ul class="list-group list-group-horizontal-sm header-ul">
-        
-        <% if (user_id !== null) {%>
+      
+        <% if (locals.user === undefined) { %>
           <li class="mr-3">
             <a class="text-secondary" href="../login">Login <span class="sr-only">(current)</span></a>
           </li>

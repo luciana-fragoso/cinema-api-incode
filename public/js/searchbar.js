@@ -40,7 +40,7 @@ $( document ).ready(function() {
          
             searchResults.forEach(function(currentMatch,index) {   
                 $("#search-results").append(
-                    "<div class='d-flex w-100'>"+
+                    "<div class='d-flex w-100 each-show'>"+
                     "<div class='show-search-image'>"+
                     "<a href='../shows/"+currentMatch.id+"'><img class='very-small-icon' src='"+currentMatch.image+"' alt='"+currentMatch.name+" icon' /></a></div>"+
                     "<div class='show-search-list'>"+

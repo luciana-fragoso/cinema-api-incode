@@ -7,7 +7,7 @@
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/navbar') %>
-    <% var user_id = 1 %>
+    <% var user_id = locals.user  %>
     <div class="bg-light pt-3 pb-3 main " id="main">
        
         <div class="wrapper mt-3 mb-3 mx-auto" >
@@ -25,7 +25,7 @@
                     <span id="current_rating" class='text-dark ml-1 show-rating'><%= locals.show.rating %></span> 
                       <i class="fa fa-star fa-2x mb-0 star-icon"  data-id="<%- locals.show.id %>" id="star-id" aria-hidden="true" ></i>
 
-                        <% if (user_id !== null) { %>
+                        <% if (user_id !== undefined) { %>
                           <script>    
                               document.getElementById("star-id").setAttribute("data-toggle", "popover"); 
                           </script>

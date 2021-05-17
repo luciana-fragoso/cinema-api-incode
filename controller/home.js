@@ -1,4 +1,5 @@
 const User = require("../model/user");
+
 const jwt = require("jsonwebtoken");
 const showController = require("../controller/show");
 const axios = require('axios').default;
@@ -69,40 +70,37 @@ exports.signup_post = async (req, res) => {
 
 exports.login_post = async (req,res,next) =>{
 
-    /*
-    User.findOne({
-        where: { 
-            email: req.body.email
+    var message = [];
+    await User.findOne({
+        where: {
+          email: req.body.email
         }
-     })
-    .then(user =>{
-        console.log(user);
-    let token = jwt.sign({id:user.id},''+process.env.jwt_key,
-        {
-           expiresIn:"1h"
-       })
-       //return done(null, false, req.flash('message', 'Login successful' ))
-       return res.cookie('token', token, {
-           secure: false, // set to true if your using https
-           httpOnly: true,
-         }).json({
-           msg:'Login sucessful',
-           token: token,
-         }); 
-      /* return res.status(200).send({
-           msg:'Login sucessful',
-           token: token
-       });*/
-       //res.redirect('/');});
-    
-       console.log("LOGIN  CODE MUST GO HERE");
-       res.redirect("/");    
-   
-   
+      }).then(user => {
+        if (!user) {
+            message.push("E-mail not found");
+            res.render("pages/login",{message:message,type:"error"}); 
+        } else {
+
+            var passwordIsValid = bcrypt.compareSync(req.body.password,user.password);
+
+            if (!passwordIsValid) {
+                message.push("Wrong password");
+                res.render("pages/login",{token: null,message:message,type:"error"});
+                }
+            else {
+                req.session.user=user.id;
+                res.redirect("/");
+             
+            }
+        
+  
+       
+    }
+    });
 };
 
 exports.logout = function(req,res){
-    console.log("LOGOUT CODE MUST GO HERE");
+    req.session.destroy();
     res.redirect("/");
 
 }
