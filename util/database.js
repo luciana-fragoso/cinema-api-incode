@@ -3,8 +3,8 @@ const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(
     DB_NAME="DB_SCHEMA",
-    DB_USER="YOUR USER",
-    DB_PASS= "YOUR PASSWORD.",
+    DB_USER="root",
+    DB_PASS= "Mxyzptlk8043.",
   {
     host: "localhost",
     dialect: "mysql",
@@ -20,6 +20,7 @@ sequelize.sync();
 
 (async () => {
   try {
+    
     await sequelize.authenticate();
     
   } catch (error) {
